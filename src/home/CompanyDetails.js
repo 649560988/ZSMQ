@@ -83,17 +83,6 @@ export class CompanyDetails extends Component {
     var url='tel:' + data;
     Linking.openURL(url)
   }
-
-  handClick=()=>{
-    let url="androidamap://keywordNavi?sourceApplication=softname&keyword="+"清水湾22号楼"+"&style=2"
-    Linking.canOpenURL(url).then(supported=>{
-      if(supported){
-        Linking.openURL(url)
-      }else{
-        Alert.alert("请先安装")
-      }
-    })
-  }
   /**
    * 根据企业id查询企业的财税信息
    */
@@ -134,7 +123,7 @@ export class CompanyDetails extends Component {
     let creationDate = temp.getFullYear() + '年' + (temp.getMonth() + 1) + '月' + temp.getDate() + '日'
     return (
       <View style={{ width: width, backgroundColor: '#147DD5', display: 'flex', flexDirection: 'column' }}>
-        <View style={{ flex: 1, marginLeft: 'auto', marginRight: 'auto', marginBottom: 5, display: 'flex', flexDirection: 'row' }}onPress={this.handClick()}>
+        <View style={{ flex: 1, marginLeft: 'auto', marginRight: 'auto', marginBottom: 5, display: 'flex', flexDirection: 'row' }}>
           <Icons.Location size={20} />
           <Text style={{ color: 'white', fontSize: 18, textAlign: 'center', paddingRight: 20 }}>{this.state.data.mhAddress}</Text>
         </View>
